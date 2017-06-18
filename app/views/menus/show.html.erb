@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @menu.title %>
+</p>
+
+<p>
+  <%= @menu.description %>
+  <% @menu.foods.each do |food| %>
+		<section>
+		  <div class="container py-3">
+		    <div class="card">
+		      <div class="row ">
+		        <div class="col-md-4">
+		            <img src="<%= food.url %>/<% food.id %>" class="w-100">
+		          </div>
+		          <div class="col-md-8 px-3">
+		            <div class="card-block px-3">
+		              <h4 class="card-title"><%= food.title %></h4>
+		              <p class="card-text"><%= food.description %></p>
+		              
+		              <a href="#" class="btn btn-primary">Read More</a>
+		            </div>
+		          </div>
+
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</section>
+  <% end %>
+</p>
+

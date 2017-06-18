@@ -1,0 +1,13 @@
+<h1>Coder Restaurant</h1>
+
+<%= link_to "Menu", home_index_path%>
+<%= link_to "Contact Us", home_contact_us_path%>
+
+<div class="container">
+	<div class="btn-group">
+		<% @menus.each do |item| %>
+			<%= link_to item.title, menu_path(id: item.id), class: "btn btn-secondary" %>
+		<% end %>
+	</div>
+	
+</div>
