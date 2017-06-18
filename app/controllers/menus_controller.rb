@@ -10,6 +10,25 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
+    @foods = nil;
+    sort_order = "";
+
+
+    if params[:sort_by] 
+      if params[:sort_by] == 'title'
+        sort_order = "title DESC"
+      elsif params[:sort_by] == 'price_low'
+        sort_order = "price ASC"
+      else 
+        sort_order = "price DESC"
+      end
+      @foods = @menu.foods.order(sort_order)
+
+    else 
+      @foods = @menu.foods
+    end
+
+
   end
 
   # GET /menus/new

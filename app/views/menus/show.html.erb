@@ -1,33 +1,53 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <%= @menu.title %>
-</p>
+	<p>
+	  <%= @menu.title %>
+	</p>
 
-<p>
-  <%= @menu.description %>
-  <% @menu.foods.each do |food| %>
-		<section>
-		  <div class="container py-3">
-		    <div class="card">
-		      <div class="row ">
-		        <div class="col-md-4">
-		            <img src="<%= food.url %>/<% food.id %>" class="w-100">
-		          </div>
-		          <div class="col-md-8 px-3">
-		            <div class="card-block px-3">
-		              <h4 class="card-title"><%= food.title %></h4>
-		              <p class="card-text"><%= food.description %></p>
-		              
-		              <a href="#" class="btn btn-primary">Read More</a>
-		            </div>
-		          </div>
+	<div class="row">    
+	        <div class="col-xs-8 col-xs-offset-2">
+			    <div class="input-group">
+	                <div class="input-group-btn search-panel">
+	                    <div class="dropdown">
+											  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											    Sort
+											  </button>
+											  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											  	<%= link_to "Alphabetical", menu_path(id: @menu.id, sort_by: "title"), class: "dropdown-item" %>
+											  	<%= link_to "Price low to high", menu_path(id: @menu.id, sort_by: "low_price"), class: "dropdown-item" %>
+											  	<%= link_to "Price high to low", menu_path(id: @menu.id, sort_by: "high_price"), class: "dropdown-item" %>
+											  </div>
+											</div>
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	<p>
+	  <%= @menu.description %>
+	  <% @foods.each do |food| %>
+			<section>
+			  <div class="container py-3">
+			    <div class="card">
+			      <div class="row ">
+			        <div class="col-md-4">
+			            <img src="<%= food.url %>/<%= food.id %>" class="w-100">
+			          </div>
+			          <div class="col-md-8 px-3">
+			            <div class="card-block px-3">
+			              <h4 class="card-title"><%= food.title %></h4>
+			              <p class="card-text"><%= food.description %></p>
+			              <p class="card-text"><%= food.price %></p>
+			              <a href="#" class="btn btn-primary">Read More</a>
+			            </div>
+			          </div>
 
-		        </div>
-		      </div>
-		    </div>
-		  </div>
-		</section>
-  <% end %>
-</p>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</section>
+	  <% end %>
+	</p>
 
+</div>
