@@ -71,13 +71,11 @@ if Food.count == 0
 		menu_id: 2, 
 		price: 50) 
 
-
 	Food.create(title: "ShuShi", 
 		description: "", 
 		url: "http://lorempixel.com/400/400/food", 
 		menu_id: 3, 
 		price: 100)
-end
 else
 	puts "You already have food in the DB"
 end
