@@ -35,7 +35,7 @@
 
     <div class="form-group field">
       <%= form.label :menu_id %>
-      <%= form.select :menu_id, options_for_select(Menu.all.map{|x| [x.title, x.id]}), {}, {:class => "form-control"}%>
+      <%= form.select :menu_id, options_from_collection_for_select(Menu.all, :id, :title, @food.menu_id), {}, {:class => "form-control"}%>
     </div>
 
     <div>
